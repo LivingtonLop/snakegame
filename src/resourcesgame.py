@@ -1,0 +1,2 @@
+class ResourcesGame:
+    pass
