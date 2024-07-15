@@ -20,3 +20,5 @@ DIRIMAGE_BUTTON_RETRY :str = "assets/image/buttons/retry.png"
 
 BLACK :tuple = (0,0,0)
 WHITE :tuple = (255,255,255)
+RED : tuple = (0,255,0)
+YELLOW : tuple = (255,255,0)

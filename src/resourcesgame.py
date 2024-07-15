@@ -1,2 +1,5 @@
+
+
 class ResourcesGame:
-    pass
+    def __init__(self) -> None:
+        self.execute : bool = True
