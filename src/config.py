@@ -10,9 +10,6 @@ SIZE_CUBE :int = 30
 COLUMN_TABLE :int = WIDTH_TABLE//SIZE_CUBE
 ROW_TABLE :int = HEIGHT_TABLE//SIZE_CUBE
 
-# COOR_CENTER_Y : int = HEIGHT_TABLE//2 - SIZE_CUBE//2
-# COOR_CENTER_X : int = WIDTH_TABLE//2 - SIZE_CUBE//2
-
 
 #logo
 ICO_GAME :str = "assets/image/logo/snakegame_logo.ico"

@@ -33,6 +33,7 @@ class Game (Event):
             self.mouse(event=event)
 
     def update(self):
+        self.eatfood = self.snake.eat()
         pass
 
     def render(self):
@@ -40,5 +41,6 @@ class Game (Event):
         
         self.table.render(self.screen)
         self.snake.render(self.screen)
-        
+        self.table.generateFood(self.screen,self.eatfood)
+
         pygame.display.update()

@@ -1,6 +1,7 @@
 import pygame
+import random
 
-from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE
+from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE, RED
 
 class Table:
     
@@ -32,8 +33,10 @@ class Table:
                                     rect
                                 )
     
-    def confirmEat(self)->int:
-        food = 0
-        #logic
+    def generateFood(self,screen:pygame, ate : bool):
+        if ate:
+            x = random.randint(0,WIDTH_TABLE//SIZE_CUBE-1) * SIZE_CUBE
+            y = random.randint(0,HEIGHT_TABLE//SIZE_CUBE-1) * SIZE_CUBE
 
-        return food * 10
+
+            pygame.draw.rect(screen,RED,(x,y,SIZE_CUBE,SIZE_CUBE))

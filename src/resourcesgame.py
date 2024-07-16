@@ -10,4 +10,4 @@ class ResourcesGame:
 
         self.table = Table()
         self.snake = Snake()
-    
+        self.eatfood : bool
