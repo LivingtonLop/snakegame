@@ -1,13 +1,18 @@
-WIDTH  :int = 0
-HEIGHT :int = 0
+WIDTH  :int = 900
+HEIGHT :int = 600
+NAME_GAME : str = "Snake" 
 
-WIDTH_TABLE :int = 0
-HEIGHT_TABLE :int = 0
+WIDTH_TABLE :int = 600
+HEIGHT_TABLE :int = 600
 
-SIZE_CUBE :int = 0
+SIZE_CUBE :int = 30
 
 COLUMN_TABLE :int = WIDTH_TABLE//SIZE_CUBE
 ROW_TABLE :int = HEIGHT_TABLE//SIZE_CUBE
+
+# COOR_CENTER_Y : int = HEIGHT_TABLE//2 - SIZE_CUBE//2
+# COOR_CENTER_X : int = WIDTH_TABLE//2 - SIZE_CUBE//2
+
 
 #logo
 ICO_GAME :str = "assets/image/logo/snakegame_logo.ico"

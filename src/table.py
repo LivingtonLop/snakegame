@@ -14,21 +14,22 @@ class Table:
         ]
 
     def render(self, screen : pygame) -> None:
-        for x in range(ROW_TABLE):
-            for y in range(COLUMN_TABLE):
-                rect : tuple = (y*SIZE_CUBE, x*SIZE_CUBE, SIZE_CUBE, SIZE_CUBE)
+        for y in range(ROW_TABLE):
+            for x in range(COLUMN_TABLE):
+
+                rect : tuple = (x*SIZE_CUBE, y*SIZE_CUBE, SIZE_CUBE, SIZE_CUBE)
+                
                 pygame.draw.rect(
-                                    surface= screen,
-                                    color= BLACK,
-                                    rect= rect,
-                                    width=1
+                                    screen,
+                                    BLACK,
+                                    rect,
+                                    1
                                 )
-                if self.map[x][y] != BLACK:
+                if self.map[y][x] != BLACK:
                     pygame.draw.rect(
-                                    surface= screen,
-                                    color= self.map[x][y],
-                                    rect= rect,
-                                    width=1
+                                    screen,
+                                    self.map[y][x],
+                                    rect
                                 )
     
     def confirmEat(self)->int:
