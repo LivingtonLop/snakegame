@@ -43,3 +43,10 @@ MESSAGE_LOS : str = "You had Loser, please press 'yes' to retry or 'no' to close
 TITLE_PAS : str = "Game Pause"
 MESSAGE_PAS : str = "You pause the game, press icon retry to remove the pause"
 
+#oppocite
+KEY_OPPOSITE = {
+    pygame.K_UP: pygame.K_DOWN,
+    pygame.K_DOWN: pygame.K_UP,
+    pygame.K_LEFT: pygame.K_RIGHT,
+    pygame.K_RIGHT: pygame.K_LEFT
+}

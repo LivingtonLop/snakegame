@@ -8,21 +8,21 @@ class Snake:
         self.color : tuple = YELLOW
         self.body = SNAKE_BODY
         self.direction = pygame.K_RIGHT
-        self.old_direction = self.direction
 
     def render (self, screen:pygame):
         for segment in self.body:
             pygame.draw.rect(screen,self.color,(*segment,SIZE_CUBE,SIZE_CUBE))
 
     def move(self):
+        
         x, y = self.body[0]
 
         dict_dir : dict = {
-            pygame.K_UP : (x, y - SIZE_CUBE) if self.old_direction != pygame.K_DOWN else (x, y + SIZE_CUBE) ,
-            pygame.K_DOWN : (x, y + SIZE_CUBE) if self.old_direction != pygame.K_UP else (x, y - SIZE_CUBE),
-            pygame.K_RIGHT: (x + SIZE_CUBE, y) if self.old_direction != pygame.K_LEFT else (x - SIZE_CUBE, y ),
-            pygame.K_LEFT :(x - SIZE_CUBE, y) if self.old_direction != pygame.K_RIGHT else (x + SIZE_CUBE, y )
-        }
+            pygame.K_UP : (x, y - SIZE_CUBE) ,
+            pygame.K_DOWN : (x, y + SIZE_CUBE),
+            pygame.K_RIGHT: (x + SIZE_CUBE, y),
+            pygame.K_LEFT :(x - SIZE_CUBE, y)
+       }
 
         self.body.appendleft(dict_dir.get(self.direction))
         self.body.pop()

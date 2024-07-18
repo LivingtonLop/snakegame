@@ -1,5 +1,7 @@
 import pygame
 from resourcesgame import ResourcesGame
+
+from config import KEY_OPPOSITE
 class Event(ResourcesGame):
 
     def __init__(self) -> None:
@@ -9,8 +11,8 @@ class Event(ResourcesGame):
     def keyboard(self, event:pygame) -> None:
         if event.type == pygame.KEYDOWN:
             if event.key in self.tuple_keydown:
-                self.snake.old_direction = self.snake.direction
-                self.snake.direction = event.key
+                old = KEY_OPPOSITE.get(self.snake.direction)
+                self.snake.direction = event.key if old != event.key else self.snake.direction
 
 
     def mouse(self, event:pygame) -> None:
