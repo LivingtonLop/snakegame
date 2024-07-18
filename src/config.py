@@ -1,3 +1,4 @@
+import pygame
 from collections import deque
 
 WIDTH  :int = 900
@@ -22,7 +23,23 @@ DIRIMAGE_BUTTON_CONTINUE :str = "assets/image/buttons/continue.png"
 DIRIMAGE_BUTTON_PAUSE :str = "assets/image/buttons/pause.png"
 DIRIMAGE_BUTTON_RETRY :str = "assets/image/buttons/retry.png"
 
+#skins
+DIRIMAGE_SKIN_APPLE_SCORE : str = "assets/image/skins/skini_apple_score.png"
+
 BLACK :tuple = (0,0,0)
 WHITE :tuple = (255,255,255)
 RED : tuple = (0,255,0)
 YELLOW : tuple = (255,255,0)
+
+#Coordenas elements
+
+COOR_SCORE :tuple = (650,10)
+
+#message
+
+TITLE_LOS : str = "Game Over"
+MESSAGE_LOS : str = "You had Loser, please press 'yes' to retry or 'no' to close the game"
+
+TITLE_PAS : str = "Game Pause"
+MESSAGE_PAS : str = "You pause the game, press icon retry to remove the pause"
+

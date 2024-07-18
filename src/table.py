@@ -1,7 +1,7 @@
 import pygame
 import random
 
-from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE
+from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE,RED
 
 class Table:
     
@@ -40,3 +40,9 @@ class Table:
         y = random.randint(0,HEIGHT_TABLE//SIZE_CUBE-1) * SIZE_CUBE
 
         return (x,y)
+    
+    def generateFood(self,screen : pygame, coor_food : tuple):
+        
+        pygame.draw.rect(screen,RED,(*coor_food,SIZE_CUBE,SIZE_CUBE))
+        
+        

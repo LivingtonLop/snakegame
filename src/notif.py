@@ -1,2 +1,16 @@
+import tkinter as tk
+
+from tkinter import messagebox
+
 class Notif:
-    pass
+    def __init__(self) -> None:
+        self.root = tk.Tk()
+
+    # q have of reference, that in False == Pause and True == Game Over
+    def render(self,q : bool, title:str, message : str)->bool:
+        self.title : str = title
+        self.message : str = message
+        self.root.withdraw()
+        res = messagebox.askyesno(self.title, self.message) if q else messagebox.showinfo(self.title, self.message)
+        self.root.destroy()
+        return res

@@ -9,7 +9,9 @@ class Event(ResourcesGame):
     def keyboard(self, event:pygame) -> None:
         if event.type == pygame.KEYDOWN:
             if event.key in self.tuple_keydown:
+                self.snake.old_direction = self.snake.direction
                 self.snake.direction = event.key
+
 
     def mouse(self, event:pygame) -> None:
         pass

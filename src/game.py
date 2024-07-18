@@ -1,5 +1,5 @@
 import pygame
-from config import WHITE, WIDTH, HEIGHT, NAME_GAME,RED,SIZE_CUBE
+from config import WHITE, WIDTH, HEIGHT, NAME_GAME
 from event import Event
 
 class Game (Event):
@@ -34,13 +34,9 @@ class Game (Event):
 
     def update(self):
         self.snake.move()
-
-        if self.snake.body[0] == self.coor_food:
-            self.snake.grow()
-            self.coor_food = self.table.generateCoor()   
-                 
-        
-
+        self.collisionSnakeWithFood()
+        self.collisionBodySnake()
+            
 
     def render(self):
         self.screen.fill((WHITE))
@@ -48,5 +44,7 @@ class Game (Event):
         self.table.render(self.screen)
         self.snake.render(self.screen)
 
-        pygame.draw.rect(self.screen,RED,(*self.coor_food,SIZE_CUBE,SIZE_CUBE))
+        self.table.generateFood(self.screen, self.coor_food)
+        self.showScreenScore(self.screen)
+
         pygame.display.update()
