@@ -1,7 +1,7 @@
 import pygame
 import random
 
-from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE, RED
+from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE
 
 class Table:
     
@@ -13,6 +13,7 @@ class Table:
             ]
             for _ in range (ROW_TABLE)
         ]
+
 
     def render(self, screen : pygame) -> None:
         for y in range(ROW_TABLE):
@@ -33,10 +34,9 @@ class Table:
                                     rect
                                 )
     
-    def generateFood(self,screen:pygame, ate : bool):
-        if ate:
-            x = random.randint(0,WIDTH_TABLE//SIZE_CUBE-1) * SIZE_CUBE
-            y = random.randint(0,HEIGHT_TABLE//SIZE_CUBE-1) * SIZE_CUBE
+    def generateCoor(self)->tuple:
 
+        x = random.randint(0,WIDTH_TABLE//SIZE_CUBE-1) * SIZE_CUBE
+        y = random.randint(0,HEIGHT_TABLE//SIZE_CUBE-1) * SIZE_CUBE
 
-            pygame.draw.rect(screen,RED,(x,y,SIZE_CUBE,SIZE_CUBE))
+        return (x,y)

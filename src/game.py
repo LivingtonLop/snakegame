@@ -1,5 +1,5 @@
 import pygame
-from config import WHITE, WIDTH, HEIGHT, NAME_GAME
+from config import WHITE, WIDTH, HEIGHT, NAME_GAME,RED,SIZE_CUBE
 from event import Event
 
 class Game (Event):
@@ -9,7 +9,7 @@ class Game (Event):
         
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption(NAME_GAME)
-
+        
         self.clock = pygame.time.Clock()
     
     def run (self):
@@ -19,7 +19,7 @@ class Game (Event):
             self.events()
             self.update()
             self.render()
-            self.clock.tick(60)
+            self.clock.tick(10)
     
         pygame.quit()
 
@@ -33,14 +33,20 @@ class Game (Event):
             self.mouse(event=event)
 
     def update(self):
-        self.eatfood = self.snake.eat()
-        pass
+        self.snake.move()
+
+        if self.snake.body[0] == self.coor_food:
+            self.snake.grow()
+            self.coor_food = self.table.generateCoor()   
+                 
+        
+
 
     def render(self):
         self.screen.fill((WHITE))
         
         self.table.render(self.screen)
         self.snake.render(self.screen)
-        self.table.generateFood(self.screen,self.eatfood)
 
+        pygame.draw.rect(self.screen,RED,(*self.coor_food,SIZE_CUBE,SIZE_CUBE))
         pygame.display.update()

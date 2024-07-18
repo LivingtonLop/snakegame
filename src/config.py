@@ -1,3 +1,5 @@
+from collections import deque
+
 WIDTH  :int = 900
 HEIGHT :int = 600
 NAME_GAME : str = "Snake" 
@@ -10,7 +12,7 @@ SIZE_CUBE :int = 30
 COLUMN_TABLE :int = WIDTH_TABLE//SIZE_CUBE
 ROW_TABLE :int = HEIGHT_TABLE//SIZE_CUBE
 
-
+SNAKE_BODY = deque ([(3*SIZE_CUBE, 3*SIZE_CUBE), (2*SIZE_CUBE, 3*SIZE_CUBE), (1*SIZE_CUBE, 3*SIZE_CUBE)])
 #logo
 ICO_GAME :str = "assets/image/logo/snakegame_logo.ico"
 LOGO_GAME :str = "assets/image/logo/snakegame_logo.png"

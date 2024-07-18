@@ -10,4 +10,5 @@ class ResourcesGame:
 
         self.table = Table()
         self.snake = Snake()
-        self.eatfood : bool
+        self.coor_food : tuple = self.table.generateCoor()
+
