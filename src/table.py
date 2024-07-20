@@ -1,7 +1,14 @@
-import pygame
 import random
 
-from config import SIZE_CUBE, BLACK,COLUMN_TABLE, ROW_TABLE, WIDTH_TABLE,HEIGHT_TABLE,RED
+from config import (
+                    SIZE_CUBE,
+                    BLACK,
+                    COLUMN_TABLE,
+                    ROW_TABLE,
+                    WIDTH_TABLE,
+                    HEIGHT_TABLE,
+                    RED,
+                    pygame)
 
 class Table:
     

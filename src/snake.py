@@ -1,12 +1,15 @@
-import pygame
-
-from config import YELLOW, SNAKE_BODY, SIZE_CUBE
+from config import (
+                    YELLOW,
+                    SNAKE_BODY,
+                    SIZE_CUBE,
+                    deque,
+                    pygame)
 class Snake:
     
     def __init__(self) -> None:
         
         self.color : tuple = YELLOW
-        self.body = SNAKE_BODY
+        self.body = deque(SNAKE_BODY)
         self.direction = pygame.K_RIGHT
 
     def render (self, screen:pygame):
@@ -46,4 +49,7 @@ class Snake:
                 new_segment = (tail_end_x - SIZE_CUBE, tail_end_y)
 
         self.body.append(new_segment)   
-        
+    
+    def reset(self):
+        self.body = deque(SNAKE_BODY)
+        self.direction = pygame.K_RIGHT

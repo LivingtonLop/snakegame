@@ -4,10 +4,10 @@ from tkinter import messagebox
 
 class Notif:
     def __init__(self) -> None:
-        self.root = tk.Tk()
-
+        pass
     # q have of reference, that in False == Pause and True == Game Over
     def render(self,q : bool, title:str, message : str)->bool:
+        self.root = tk.Tk()
         self.title : str = title
         self.message : str = message
         self.root.withdraw()

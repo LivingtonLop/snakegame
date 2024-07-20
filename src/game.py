@@ -1,6 +1,12 @@
-import pygame
-from config import WHITE, WIDTH, HEIGHT, NAME_GAME
 from event import Event
+from config import (
+                    WHITE,
+                    WIDTH,
+                    HEIGHT,
+                    NAME_GAME,
+                    #ICO_GAME,
+                    pygame
+                    )
 
 class Game (Event):
     def __init__(self) -> None:
@@ -15,7 +21,6 @@ class Game (Event):
     def run (self):
 
         while self.execute:
-    
             self.events()
             self.update()
             self.render()
@@ -29,20 +34,24 @@ class Game (Event):
             if event.type == pygame.QUIT:
                 self.execute = False
             #events
-            self.keyboard(event=event)
+            if not self.pause:
+                self.keyboard(event=event)
+                
             self.mouse(event=event)
 
     def update(self):
-        self.snake.move()
-        self.collisionSnakeWithFood()
-        self.collisionBodySnake()
+        if not self.pause:
+            self.snake.move()
+            self.collisionSnakeWithFood()
+            self.collisionBodySnake()
             
-
     def render(self):
         self.screen.fill((WHITE))
         
         self.table.render(self.screen)
         self.snake.render(self.screen)
+        self.btn_pause.render(self.screen)
+        self.btn_retry.render(self.screen)
 
         self.table.generateFood(self.screen, self.coor_food)
         self.showScreenScore(self.screen)

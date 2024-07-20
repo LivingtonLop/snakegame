@@ -1,7 +1,8 @@
-import pygame
 from resourcesgame import ResourcesGame
-
-from config import KEY_OPPOSITE
+from config import (
+                    KEY_OPPOSITE,
+                    pygame
+                    )
 class Event(ResourcesGame):
 
     def __init__(self) -> None:
@@ -16,4 +17,15 @@ class Event(ResourcesGame):
 
 
     def mouse(self, event:pygame) -> None:
-        pass
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                mouse_x, mouse_y = event.pos
+                if self.btn_retry.x <= mouse_x <= self.btn_retry.x + self.btn_retry.img.get_width() and self.btn_retry.y <= mouse_y <= self.btn_retry.y + self.btn_retry.img.get_height():
+                        
+                    if self.notif.render(True,"Reinicio","Usted quiere reiniciar la partida?"):
+                        self.retryGame()
+
+                if self.btn_pause.x <= mouse_x <= self.btn_pause.x + self.btn_pause.img.get_width() and self.btn_pause.y <= mouse_y <= self.btn_pause.y + self.btn_pause.img.get_height():    
+                    self.notif.render(False,"Pausado","El juego esta pausado, toca nuevamente para seguir con la partida")
+                    self.pauseGame()
+                    self.pause = not self.pause

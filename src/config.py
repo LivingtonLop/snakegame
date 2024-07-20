@@ -33,8 +33,8 @@ YELLOW : tuple = (255,255,0)
 
 #Coordenas elements
 
-COOR_SCORE :tuple = (650,10)
-
+COOR_SCORE :tuple = (800,10)
+COOR_IMG_SCORE : tuple = (650, 10)
 #message
 
 TITLE_LOS : str = "Game Over"
