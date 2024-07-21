@@ -31,10 +31,6 @@ class ResourcesGame:
         self.coor_food : tuple = self.table.generateCoor()
         self.score : int = 0
 
-    def collision(self) -> bool: #collision in walls
-        res : bool = False
-        return res
-
     def collisionBodySnake(self)->None: #collision in body snake
         res : bool = False
         h = self.snake.body[0] #head
@@ -65,15 +61,19 @@ class ResourcesGame:
         screen.blit(img, COOR_IMG_SCORE)
 
     def pauseGame(self):
-        if not self.pause:
+        self.pause = not self.pause
+        
+        if self.pause:
             self.btn_pause.img = pygame.image.load(DIRIMAGE_BUTTON_CONTINUE)
         else:
             self.btn_pause.img = pygame.image.load(DIRIMAGE_BUTTON_PAUSE)
+        
+        self.btn_pause.img = pygame.transform.scale(self.btn_pause.img,self.btn_pause.scale)
             
     def retryGame(self):
-        self.pause = True
         #remove food
         self.snake.reset()
         self.score = 0
-
-        self.pause = False
+        
+        self.execute = True
+        self.pauseGame()

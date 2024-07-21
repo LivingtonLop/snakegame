@@ -1,7 +1,7 @@
 import pygame
 from collections import deque
 
-WIDTH  :int = 900
+WIDTH  :int = 1000
 HEIGHT :int = 600
 NAME_GAME : str = "Snake" 
 

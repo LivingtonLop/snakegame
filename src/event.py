@@ -28,4 +28,3 @@ class Event(ResourcesGame):
                 if self.btn_pause.x <= mouse_x <= self.btn_pause.x + self.btn_pause.img.get_width() and self.btn_pause.y <= mouse_y <= self.btn_pause.y + self.btn_pause.img.get_height():    
                     self.notif.render(False,"Pausado","El juego esta pausado, toca nuevamente para seguir con la partida")
                     self.pauseGame()
-                    self.pause = not self.pause
